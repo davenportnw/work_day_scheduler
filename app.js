@@ -26,6 +26,9 @@ let onePm = document.getElementById("one-pm");
 let onePmBtn = document.getElementById("saveOnePm");
 let previousOne = document.getElementById("previousOnePm");
 
+let twoPm = document.getElementById("two-pm");
+let twoPmBtn = document.getElementById("saveTwoPm");
+let previousTwo = document.getElementById("previousTwoPm");
 
 //Present current time & date
 
@@ -56,6 +59,10 @@ function runPreviousEvents(){
 
     if (previousOne.length === undefined || 0) {
         $("#previousOnePm").append(localStorage.getItem("inputOnePmTb")
+        )}
+
+    if (previousTwo.length === undefined || 0) {
+        $("#previousTwoPm").append(localStorage.getItem("inputTwoPmTb")
         )}
     
 
@@ -109,7 +116,6 @@ tenAmBtn.addEventListener("click", function(event) {
 });
 
 //11
-
 //Save button
 elevenAmBtn.addEventListener("click", function(event) {
     event.preventDefault();
@@ -129,7 +135,6 @@ elevenAmBtn.addEventListener("click", function(event) {
 
 
 //12pm
-
 //Save button
 twelvePmBtn.addEventListener("click", function(event) {
     event.preventDefault();
@@ -148,7 +153,6 @@ twelvePmBtn.addEventListener("click", function(event) {
 });
 
 //1pm
-
 //Save button
 onePmBtn.addEventListener("click", function(event) {
     event.preventDefault();
@@ -158,11 +162,29 @@ onePmBtn.addEventListener("click", function(event) {
      };
     localStorage.setItem("inputOnePmTb", inputOnePmTb.onePmTB);
     localStorage.getItem("inputOnePmTb");
-    console.log("inputOnePmTb.onePmTB", inputOnePmTb.onePmTB);
 //Writing event
     for (var key in localStorage) {
         if(localStorage.hasOwnProperty(key)) {
-            $("#previousPm").append(localStorage.getItem("inputOnePmTb")
+            $("#previousOnePm").append(localStorage.getItem("inputOnePmTb")
+            )}
+    }
+});
+
+//2pm
+
+//Save button
+twoPmBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+//time block save
+    var inputTwoPmTb = {
+        twoPmTB: twoPm.value.trim()
+     };
+    localStorage.setItem("inputTwoPmTb", inputTwoPmTb.twoPmTB);
+    localStorage.getItem("inputTwoPmTb");
+//Writing event
+    for (var key in localStorage) {
+        if(localStorage.hasOwnProperty(key)) {
+            $("#previousTwoPm").append(localStorage.getItem("inputTwoPmTb")
             )}
     }
 });
