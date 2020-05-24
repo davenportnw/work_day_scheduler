@@ -37,6 +37,10 @@ let previousThree = document.getElementById("previousThreePm");
 let fourPm = document.getElementById("four-pm");
 let fourPmBtn = document.getElementById("saveFourPm");
 let previousFour = document.getElementById("previousFourPm");
+
+let fivePm = document.getElementById("five-pm");
+let fivePmBtn = document.getElementById("saveFivePm");
+let previousFive = document.getElementById("previousFivePm");
 //Present current time & date
 
 const today = moment().format('MMMM Do YYYY, h:mm:ss a');
@@ -78,6 +82,10 @@ function runPreviousEvents(){
 
     if (previousFour.length === undefined || 0) {
         $("#previousFourPm").append(localStorage.getItem("inputFourPmTb")
+        )}
+
+    if (previousFive.length === undefined || 0) {
+        $("#previousFivePm").append(localStorage.getItem("inputFivePmTb")
         )}
     
 
@@ -235,6 +243,24 @@ fourPmBtn.addEventListener("click", function(event) {
     for (var key in localStorage) {
         if(localStorage.hasOwnProperty(key)) {
             $("#previousFourPm").append(localStorage.getItem("inputFourPmTb")
+            )}
+    }
+});
+
+//5pm
+//Save button
+fivePmBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+//time block save
+    var inputFivePmTb = {
+        fivePmTB: fivePm.value.trim()
+     };
+    localStorage.setItem("inputFivePmTb", inputFivePmTb.fivePmTB);
+    localStorage.getItem("inputFivePmTb");
+//Writing event
+    for (var key in localStorage) {
+        if(localStorage.hasOwnProperty(key)) {
+            $("#previousFivePm").append(localStorage.getItem("inputFivePmTb")
             )}
     }
 });
