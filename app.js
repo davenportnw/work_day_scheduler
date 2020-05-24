@@ -54,6 +54,10 @@ let eightPm = document.getElementById("eight-pm");
 let eightPmBtn = document.getElementById("saveEightPm");
 let previousEight = document.getElementById("previousEightPm");
 
+let ninePm = document.getElementById("nine-pm");
+let ninePmBtn = document.getElementById("saveNinePm");
+let previousNinePm = document.getElementById("previousNinePm");
+
 
 //Present current time & date
 
@@ -114,6 +118,10 @@ function runPreviousEvents(){
         $("#previousEightPm").append(localStorage.getItem("inputEightPmTb")
         )}
 
+    if (previousNinePm.length === undefined || 0) {
+        $("#previousNinePm").append(localStorage.getItem("inputNinePmTb")
+        )}
+
 }
 
 
@@ -135,8 +143,8 @@ nineAmBtn.addEventListener("click", function(event) {
 //writing event
     for (var key in localStorage) {
         if(localStorage.hasOwnProperty(key)) {
-            previousNine.append(localStorage.getItem("inputNineAmTb")
-            )}
+            previousNine.innerHTML = localStorage.getItem("inputNineAmTb")
+        };
     }
 
 });
@@ -158,8 +166,8 @@ tenAmBtn.addEventListener("click", function(event) {
 //writing event
     for (var key in localStorage) {
         if(localStorage.hasOwnProperty(key)) {
-            $("#previousTenAm").append(localStorage.getItem("inputTenAmTb")
-        )};
+            previousTen.innerHTML = localStorage.getItem("inputTenAmTb")
+        };
     }
 });
 
@@ -176,8 +184,8 @@ elevenAmBtn.addEventListener("click", function(event) {
 //Writing event
     for (var key in localStorage) {
         if(localStorage.hasOwnProperty(key)) {
-            $("#previousElevenAm").append(localStorage.getItem("inputElevenAmTb")
-            )}
+           previousEleven.innerHTML = localStorage.getItem("inputElevenAmTb")
+        };
     }
 });
 
@@ -195,8 +203,8 @@ twelvePmBtn.addEventListener("click", function(event) {
 //Writing event
     for (var key in localStorage) {
         if(localStorage.hasOwnProperty(key)) {
-            $("#previousTwelvePm").append(localStorage.getItem("inputTwelvePmTb")
-            )}
+            previousTwelve.innerHTML =localStorage.getItem("inputTwelvePmTb")
+        }
     }
 });
 
@@ -213,8 +221,8 @@ onePmBtn.addEventListener("click", function(event) {
 //Writing event
     for (var key in localStorage) {
         if(localStorage.hasOwnProperty(key)) {
-            $("#previousOnePm").append(localStorage.getItem("inputOnePmTb")
-            )}
+           previousOne.innerHTML = localStorage.getItem("inputOnePmTb")
+        }
     }
 });
 
@@ -231,8 +239,8 @@ twoPmBtn.addEventListener("click", function(event) {
 //Writing event
     for (var key in localStorage) {
         if(localStorage.hasOwnProperty(key)) {
-            $("#previousTwoPm").append(localStorage.getItem("inputTwoPmTb")
-            )}
+            previousTwo.innerHTML = localStorage.getItem("inputTwoPmTb")
+        }
     }
 });
 
@@ -249,8 +257,8 @@ threePmBtn.addEventListener("click", function(event) {
 //Writing event
     for (var key in localStorage) {
         if(localStorage.hasOwnProperty(key)) {
-            $("#previousThreePm").append(localStorage.getItem("inputThreePmTb")
-            )}
+            previousThree.innerHTML =localStorage.getItem("inputThreePmTb")
+        }
     }
 });
 
@@ -267,8 +275,8 @@ fourPmBtn.addEventListener("click", function(event) {
 //Writing event
     for (var key in localStorage) {
         if(localStorage.hasOwnProperty(key)) {
-            $("#previousFourPm").append(localStorage.getItem("inputFourPmTb")
-            )}
+            previousFour.innerHTML = localStorage.getItem("inputFourPmTb")
+        }
     }
 });
 
@@ -285,8 +293,8 @@ fivePmBtn.addEventListener("click", function(event) {
 //Writing event
     for (var key in localStorage) {
         if(localStorage.hasOwnProperty(key)) {
-            $("#previousFivePm").append(localStorage.getItem("inputFivePmTb")
-            )}
+            previousFive.innerHTML = localStorage.getItem("inputFivePmTb")
+        }
     }
 });
 
@@ -303,8 +311,8 @@ sixPmBtn.addEventListener("click", function(event) {
 //Writing event
     for (var key in localStorage) {
         if(localStorage.hasOwnProperty(key)) {
-            $("#previousSixPm").append(localStorage.getItem("inputSixPmTb")
-            )}
+            previousSix.innerHTML = localStorage.getItem("inputSixPmTb")
+        }
     }
 });
 
@@ -321,8 +329,8 @@ sevenPmBtn.addEventListener("click", function(event) {
 //Writing event
     for (var key in localStorage) {
         if(localStorage.hasOwnProperty(key)) {
-            $("#previousSevenPm").append(localStorage.getItem("inputSevenPmTb")
-            )}
+            previousSeven.innerHTML = localStorage.getItem("inputSevenPmTb")
+        }
     }
 });
 
@@ -339,7 +347,25 @@ eightPmBtn.addEventListener("click", function(event) {
 //Writing event
     for (var key in localStorage) {
         if(localStorage.hasOwnProperty(key)) {
-            $("#previousEightPm").append(localStorage.getItem("inputEightPmTb")
-            )}
+            previousEight.innerHTML = localStorage.getItem("inputEightPmTb")
+        }
+    }
+});
+
+//9pm
+//Save button
+ninePmBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+//time block save
+    var inputNinePmTb = {
+        ninePmTB: ninePm.value.trim()
+     };
+    localStorage.setItem("inputNinePmTb", inputNinePmTb.ninePmTB);
+    localStorage.getItem("inputNinePmTb");
+//Writing event
+    for (var key in localStorage) {
+        if(localStorage.hasOwnProperty(key)) {
+            previousNinePm.innerHTML = localStorage.getItem("inputNinePmTb")
+        }
     }
 });
