@@ -30,6 +30,10 @@ let twoPm = document.getElementById("two-pm");
 let twoPmBtn = document.getElementById("saveTwoPm");
 let previousTwo = document.getElementById("previousTwoPm");
 
+let threePm = document.getElementById("three-pm");
+let threePmBtn = document.getElementById("saveThreePm");
+let previousThree = document.getElementById("previousThreePm");
+
 //Present current time & date
 
 const today = moment().format('MMMM Do YYYY, h:mm:ss a');
@@ -63,6 +67,10 @@ function runPreviousEvents(){
 
     if (previousTwo.length === undefined || 0) {
         $("#previousTwoPm").append(localStorage.getItem("inputTwoPmTb")
+        )}
+
+    if (previousThree.length === undefined || 0) {
+        $("#previousThreePm").append(localStorage.getItem("inputThreePmTb")
         )}
     
 
@@ -171,7 +179,6 @@ onePmBtn.addEventListener("click", function(event) {
 });
 
 //2pm
-
 //Save button
 twoPmBtn.addEventListener("click", function(event) {
     event.preventDefault();
@@ -185,6 +192,24 @@ twoPmBtn.addEventListener("click", function(event) {
     for (var key in localStorage) {
         if(localStorage.hasOwnProperty(key)) {
             $("#previousTwoPm").append(localStorage.getItem("inputTwoPmTb")
+            )}
+    }
+});
+
+//3pm
+//Save button
+threePmBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+//time block save
+    var inputThreePmTb = {
+        threePmTB: threePm.value.trim()
+     };
+    localStorage.setItem("inputThreePmTb", inputThreePmTb.threePmTB);
+    localStorage.getItem("inputThreePmTb");
+//Writing event
+    for (var key in localStorage) {
+        if(localStorage.hasOwnProperty(key)) {
+            $("#previousThreePm").append(localStorage.getItem("inputThreePmTb")
             )}
     }
 });
