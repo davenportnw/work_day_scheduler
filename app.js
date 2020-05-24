@@ -18,6 +18,10 @@ let elevenAm = document.getElementById("eleven-am");
 let elevenAmBtn = document.getElementById("saveElevenAm");
 let previousEleven = document.getElementById("previousElevenAm");
 
+let twelvePm = document.getElementById("twelve-pm");
+let twelvePmBtn = document.getElementById("saveTwelvePm");
+let previousTwelve = document.getElementById("previousTwelvePm");
+
 
 //Present current time & date
 
@@ -40,6 +44,10 @@ function runPreviousEvents(){
     
     if (previousEleven.length === undefined || 0) {
         $("#previousElevenAm").append(localStorage.getItem("inputElevenAmTb")
+        )}
+
+    if (previousTwelve.length === undefined || 0) {
+        $("#previousTwelvePm").append(localStorage.getItem("inputTwelvePmTb")
         )}
 }
 
@@ -71,7 +79,7 @@ nineAmBtn.addEventListener("click", function(event) {
 
 
 //10
-
+//Save button
 tenAmBtn.addEventListener("click", function(event) {
     event.preventDefault();
 
@@ -91,6 +99,7 @@ tenAmBtn.addEventListener("click", function(event) {
 });
 
 //11
+
 //Save button
 elevenAmBtn.addEventListener("click", function(event) {
     event.preventDefault();
@@ -104,6 +113,26 @@ elevenAmBtn.addEventListener("click", function(event) {
     for (var key in localStorage) {
         if(localStorage.hasOwnProperty(key)) {
             $("#previousElevenAm").append(localStorage.getItem("inputElevenAmTb")
+            )}
+    }
+});
+
+
+//12
+
+//Save button
+twelvePmBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+//time block save
+    var inputTwelvePmTb = {
+        twelvePmTB: twelvePm.value.trim()
+     };
+    localStorage.setItem("inputTwelvePmTb", inputTwelvePmTb.twelvePmTB);
+    localStorage.getItem("inputTwelvePmTb");
+//Writing event
+    for (var key in localStorage) {
+        if(localStorage.hasOwnProperty(key)) {
+            $("#previousTwelvePm").append(localStorage.getItem("inputTwelvePmTb")
             )}
     }
 });
