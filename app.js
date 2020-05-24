@@ -22,6 +22,10 @@ let twelvePm = document.getElementById("twelve-pm");
 let twelvePmBtn = document.getElementById("saveTwelvePm");
 let previousTwelve = document.getElementById("previousTwelvePm");
 
+let onePm = document.getElementById("one-pm");
+let onePmBtn = document.getElementById("saveOnePm");
+let previousOne = document.getElementById("previousOnePm");
+
 
 //Present current time & date
 
@@ -49,6 +53,12 @@ function runPreviousEvents(){
     if (previousTwelve.length === undefined || 0) {
         $("#previousTwelvePm").append(localStorage.getItem("inputTwelvePmTb")
         )}
+
+    if (previousOne.length === undefined || 0) {
+        $("#previousOnePm").append(localStorage.getItem("inputOnePmTb")
+        )}
+    
+
 }
 
 
@@ -118,7 +128,7 @@ elevenAmBtn.addEventListener("click", function(event) {
 });
 
 
-//12
+//12pm
 
 //Save button
 twelvePmBtn.addEventListener("click", function(event) {
@@ -133,6 +143,26 @@ twelvePmBtn.addEventListener("click", function(event) {
     for (var key in localStorage) {
         if(localStorage.hasOwnProperty(key)) {
             $("#previousTwelvePm").append(localStorage.getItem("inputTwelvePmTb")
+            )}
+    }
+});
+
+//1pm
+
+//Save button
+onePmBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+//time block save
+    var inputOnePmTb = {
+        onePmTB: onePm.value.trim()
+     };
+    localStorage.setItem("inputOnePmTb", inputOnePmTb.onePmTB);
+    localStorage.getItem("inputOnePmTb");
+    console.log("inputOnePmTb.onePmTB", inputOnePmTb.onePmTB);
+//Writing event
+    for (var key in localStorage) {
+        if(localStorage.hasOwnProperty(key)) {
+            $("#previousPm").append(localStorage.getItem("inputOnePmTb")
             )}
     }
 });
