@@ -46,6 +46,10 @@ let sixPm = document.getElementById("six-pm");
 let sixPmBtn = document.getElementById("saveSixPm");
 let previousSix = document.getElementById("previousSixPm");
 
+let sevenPm = document.getElementById("seven-pm");
+let sevenPmBtn = document.getElementById("saveSevenPm");
+let previousSeven = document.getElementById("previousSevenPm");
+
 
 //Present current time & date
 
@@ -96,6 +100,10 @@ function runPreviousEvents(){
 
     if (previousSix.length === undefined || 0) {
         $("#previousSixPm").append(localStorage.getItem("inputSixPmTb")
+        )}
+
+    if (previousSeven.length === undefined || 0) {
+        $("#previousSevenPm").append(localStorage.getItem("inputSevenPmTb")
         )}
 
 }
@@ -288,6 +296,24 @@ sixPmBtn.addEventListener("click", function(event) {
     for (var key in localStorage) {
         if(localStorage.hasOwnProperty(key)) {
             $("#previousSixPm").append(localStorage.getItem("inputSixPmTb")
+            )}
+    }
+});
+
+//7pm
+//Save button
+sevenPmBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+//time block save
+    var inputSevenPmTb = {
+        sevenPmTB: sevenPm.value.trim()
+     };
+    localStorage.setItem("inputSevenPmTb", inputSevenPmTb.sevenPmTB);
+    localStorage.getItem("inputSevenPmTb");
+//Writing event
+    for (var key in localStorage) {
+        if(localStorage.hasOwnProperty(key)) {
+            $("#previousSevenPm").append(localStorage.getItem("inputSevenPmTb")
             )}
     }
 });
